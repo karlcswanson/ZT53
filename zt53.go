@@ -25,11 +25,7 @@ type Network_Members struct {
 func main() {
 	session := r53Session()
 	members := getNetworkDevices(os.Getenv("ZT_NETWORK"))
-	for _, m := range members.members {
-		fmt.Printf("%s\n", m.name)
-	}
 	changes := changeList(members)
-
 	updateR53(session, changes)
 }
 
